@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<images>
+	<image id = "1" name = "CernVM" os = "Scientific_Linux" os_version = "6.0" size = "329" archive = "CERNVM-3"/>
+	<image id = "2" name = "FedCloud_CernVM" os = "Scientific_Linux" os_version = "6.0" size = "15" archive = "ucernvm_scilinux6"/>
+	<image id = "6" name = "COMPSs_PMEs" os = "Ubuntu" os_version = "15.04" size = "4126" archive = "COMPSs_PMES_Worker-disk1"/>
+	<image id = "7" name = "Chipster" os = "Ubuntu" os_version = "12.04" size = "2697" archive = "root-cloud"/>
+	<image id = "9" name = "EGI_FedCloud_Clients" os = "Ubuntu" os_version = "14.04" size = "2456" archive = "FedCloud-Client-Ubuntu"/>
+	<image id = "10" name = "EGI_Ubuntu_12" os = "Ubuntu" os_version = "12.04" size = "1189" archive = "disk1"/>
+	<image id = "11" name = "EGI_Ubuntu_14" os = "Ubuntu" os_version = "14.04" size = "2249" archive = "Ubuntu"/>
+	<image id = "12" name = "AlyaADAN" os = "Debian" os_version = "7" size = "3771" archive = "alyaADAN_heart_sim_debian_7_x86_64"/>
+	<image id = "13" name = "CentOS-7-x86_64" os = "CentOS" os_version = "7" size = "1362" archive = "centos"/>
+	<image id = "14" name = "eScienceCentral" os = "Ubuntu" os_version = "14.04" size = "6492" archive = "eScienceCentral-disk1"/>
+	<image id = "15" name = "Leishmaniasis_Virtual_Lab" os = "Ubuntu" os_version = "14.04" size = "14520" archive = "LVLServer2-disk1"/>
+	<image id = "16" name = "MC2" os = "Debian" os_version = "7.7" size = "5090" archive = "MC2-disk1"/>
+	<image id = "18" name = "COMPSs_LOFAR" os = "Debian" os_version = "7.0" size = "19108" archive = "COMPSs_LOFAR_Debian7"/>
+	<image id = "19" name = "Ubuntu_Server_14" os = "Ubuntu_Server" os_version = "14.04" size = "795" archive = "UbuntuServer-14"/>
+	<image id = "20" name = "MoinMoinWiki" os = "Ubuntu" os_version = "14.04" size = "1822" archive = "wiki-ubuntu"/>
+	<image id = "21" name = "transPLANT_Base" os = "Ubuntu" os_version = "12.04" size = "9059" archive = "Transplant_base-disk1"/>
+	<image id = "22" name = "Aleph2k" os = "Scientific_Linux" os_version = "5.11" size = "15723" archive = "aleph2k-disk1"/>
+	<image id = "23" name = "GenericVM" os = "CentOS" os_version = "6.6" size = "1739" archive = "generic-VM-disk1"/>
+	<image id = "24" name = "GenericWWW" os = "CentOS" os_version = "6.6" size = "1736" archive = "generic_www-disk1"/>
+	<image id = "25" name = "VirtOctave" os = "CentOS" os_version = "6.6" size = "4280" archive = "virt-octave-3"/>
+	<image id = "26" name = "VirtR" os = "CentOS" os_version = "6.6" size = "2465" archive = "virt-r_2"/>
+	<image id = "27" name = "Tthreader" os = "Scientific_Linux" os_version = "6.5" size = "5809" archive = "tthreader-disk1"/>
+	<image id = "28" name = "AppWRF" os = "CentOS" os_version = "6.6" size = "16832" archive = "AppWRF-disk1"/>
+	<image id = "29" name = "Ubuntu_Server_12" os = "Ubuntu_Server" os_version = "12.04" size = "1152" archive = "UbuntuServer-12"/>
+	<image id = "30" name = "TinyCoreLinux" os = "TinyCoreLinux" os_version = "0" size = "15" archive = "CoreLinux-disk1"/>
+</images>
