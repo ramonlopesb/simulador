@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <sites>
-	<site name = "atlas" id = "1" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "auger" id = "2" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "biomed" id = "3" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "chipster.csc.fi" id = "4" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "cms" id = "5" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "demo.fedcloud.egi.eu" id = "6" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "drihm.eu" id = "7" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "eiscat.se" id = "8" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "enmr.eu" id = "9" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "eubrazilcc.eu" id = "10" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "fedcloud.egi.eu" id = "11" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "highthroughputseq.egi.eu" id = "12" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "lhcb" id = "13" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "training.egi.eu" id = "14" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
-	<site name = "vo.chain-project.eu" id = "15" vcpu = "32" ram = "50" disk = "1000000" bandwidht = "10"/>
+	<site name = "atlas" id = "1"/>
+	<site name = "auger" id = "2"/>
+	<site name = "biomed" id = "3"/>
+	<site name = "chipster.csc.fi" id = "4"/>
+	<site name = "cms" id = "5"/>
+	<site name = "demo.fedcloud.egi.eu" id = "6"/>
+	<site name = "drihm.eu" id = "7"/>
+	<site name = "eiscat.se" id = "8"/>
+	<site name = "enmr.eu" id = "9"/>
+	<site name = "eubrazilcc.eu" id = "10"/>
+	<site name = "fedcloud.egi.eu" id = "11"/>
+	<site name = "highthroughputseq.egi.eu" id = "12"/>
+	<site name = "lhcb" id = "13"/>
+	<site name = "training.egi.eu" id = "14"/>
+	<site name = "vo.chain-project.eu" id = "15"/>
 </sites>

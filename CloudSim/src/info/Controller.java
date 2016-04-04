@@ -21,6 +21,7 @@ public class Controller extends Observable implements Observer {
 			time = (Long) arg;
 			List<Request> requests = new ArrayList<Request>();
 			if (workloads.containsKey(time)) {
+				System.out.println("Achou um workload");
 				for (Workload w: workloads.get(time)) {
 					requests.add(new Request(w.getID(), w));
 				}

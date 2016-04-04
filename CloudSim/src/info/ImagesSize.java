@@ -24,8 +24,9 @@ public class ImagesSize {
 	public void addInformation(Map<Integer, Double> info) {
 		String id = "";
 		for (Integer i : info.keySet()) {
-			id += i;
+			id += i + " ";
 		}
+		id = id.trim();
 		if (!dedupedImagesMap.containsKey(id)) {
 			this.dedupedImagesMap.put(id, new HashMap<Integer, Double>());
 			for (Integer i : info.keySet()) {
@@ -72,9 +73,9 @@ public class ImagesSize {
 		}
 		String id = "";
 		for (int i: list) {
-			id += i;
+			id += i + " ";
 		}
-		return id;
+		return id.trim();
 	}
 	
 	private String getID(int[] storedIDs) {
@@ -84,9 +85,9 @@ public class ImagesSize {
 		}
 		String id = "";
 		for (int i: list) {
-			id += i;
+			id += i + " ";
 		}
-		return id;
+		return id.trim();
 	}
 
 	public Map<String, Map<Integer, Double>> getDedupedImages() {

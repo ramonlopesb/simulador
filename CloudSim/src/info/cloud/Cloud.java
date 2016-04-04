@@ -12,6 +12,7 @@ import java.util.Set;
 import com.google.common.primitives.Ints;
 
 import info.GlobalClock;
+import info.LogWritter;
 import info.Request;
 import info.Resources;
 import info.VirtualMachine;
@@ -91,6 +92,10 @@ public class Cloud implements Observer {
 								}
 							}
 						}
+						System.out.println(time + " - " + "Nuvem: " + this.id + ": Iniciando a VM " + r.getImageID()
+								+ " do pedido " + r.getRequestID());
+						LogWritter.getInstance().write(time + " - " + "Nuvem: " + this.id + ": Iniciando a VM "
+								+ r.getImageID() + " do pedido " + r.getRequestID());
 						VirtualMachine vm = new VirtualMachine(r);
 						vm.run();
 						vm.addObserver(this);
@@ -102,6 +107,10 @@ public class Cloud implements Observer {
 					long timeToDownload = resources.timeToDownload(r.getImageID());
 					// agendar o pedido para após o tempo de download
 					r.setStartingTime(r.getStartTime() + timeToDownload);
+					System.out.println(time + " - " + "Nuvem: " + this.id + ": Adiando o pedido " + r.getRequestID()
+							+ " para o tempo " + r.getStartTime() + " por falta de imagem.");
+					LogWritter.getInstance().write(time + " - " + "Nuvem: " + this.id + ": Adiando o pedido "
+							+ r.getRequestID() + " para o tempo " + r.getStartTime() + " por falta de imagem.");
 					this.pendingRequests.put(r, r.getStartTime() + timeToDownload);
 					if (this.imagesToDownload.get(r.getStartTime() + timeToDownload) == null) {
 						this.imagesToDownload.put(r.getStartTime() + timeToDownload, new HashMap<Integer, Integer>());
@@ -111,6 +120,10 @@ public class Cloud implements Observer {
 				}
 			} else {
 				// tentar novamente em 10s
+				System.out.println(time + " - " + "Nuvem: " + this.id + ": Adiando o pedido " + r.getRequestID()
+						+ " para o tempo " + r.getStartTime() + " por falta de recursos.");
+				LogWritter.getInstance().write(time + " - " + "Nuvem: " + this.id + ": Adiando o pedido "
+						+ r.getRequestID() + " para o tempo " + r.getStartTime() + " por falta de recursos.");
 				r.setStartingTime(r.getStartTime() + 10);
 				this.pendingRequests.put(r, r.getStartTime() + 10);
 			}
@@ -131,14 +144,20 @@ public class Cloud implements Observer {
 		if (arg instanceof Request) { // atualizando um pedido atendido
 			synchronized (arg) {
 				Request r = (Request) arg;
+				long score = r.getDurationTime() * WebImageRepository.getInstance().getImage(r.getImageID()).getSize();
+				System.out.println(time + " - " + "Nuvem: " + this.id + ": Pontuando a quantidade de " + score
+						+ " por ter iniciado uma VM da imagem " + r.getImageID() + " à nuvem " + r.getFromCloudID());
+				LogWritter.getInstance()
+						.write(time + " - " + "Nuvem: " + this.id + ": Pontuando a quantidade de " + score
+								+ " por ter iniciado uma VM da imagem " + r.getImageID() + " à nuvem "
+								+ r.getFromCloudID());
 				this.completedRequests.add(r);
 				this.resources.deallocate(r.getVCPUs(), r.getRam(), r.getDiskSize());
-				
+
 				// pontua
-				scoreBoard.scoreByCloud(this.id, r.getFromCloudID(),
-						r.getDurationTime() * WebImageRepository.getInstance().getImage(r.getImageID()).getSize());
+				scoreBoard.scoreByCloud(this.id, r.getFromCloudID(), score);
 				scoreBoard.scoreByImage(this.id, r.getImageID(), r.getDurationTime());
-				
+
 				this.pendingRequests.remove(r);
 			}
 		} else if (arg instanceof Long) { // atualizando uma imagem que está
@@ -165,16 +184,15 @@ public class Cloud implements Observer {
 					}
 				}
 			}).start();
-		} else if (arg instanceof CloudRequests) { // atualizando novos pedidos
-			final CloudRequests cr = (CloudRequests) arg;
-			if (cr.getCloudID() == this.id) {
-				new Thread(new Runnable() {
-					@Override
-					public void run() {
-						answer(cr.getRequests());
-					}
-				}).start();
-			}
+		} else if (arg instanceof List) { // atualizando novos pedidos
+			final List<Request> cr = (List<Request>) arg;
+			System.out.println("Chegaram na cloud");
+			new Thread(new Runnable() {
+				@Override
+				public void run() {
+					answer(cr);
+				}
+			}).start();
 		}
 	}
 
